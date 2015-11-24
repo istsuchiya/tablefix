@@ -79,13 +79,22 @@
 	    scrollbarOuter.style.overflow = "hidden";
 	    scrollbarOuter.appendChild (scrollbarInner);
 	    
-	    document.body.appendChild (scrollbarOuter);
+	    if(document.body==null) {
+	    	document.documentElement.appendChild (scrollbarOuter);
+	    
+	    } else {
+	    	document.body.appendChild (scrollbarOuter);
+	    }
 	    var w1 = scrollbarInner.offsetWidth;
 	    scrollbarOuter.style.overflow = 'scroll';
 	    var w2 = scrollbarInner.offsetWidth;
 	    if (w1 == w2) w2 = scrollbarOuter.clientWidth;
 	    
-	    document.body.removeChild (scrollbarOuter);
+	    if(document.body==null) {
+	    	document.documentElement.removeChild (scrollbarOuter);
+	    } else {
+	    	document.body.removeChild (scrollbarOuter);
+	    }
 	    
 	    var scrollBarWidth =  (w1 - w2);
 
