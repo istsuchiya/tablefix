@@ -79,15 +79,13 @@
 	    scrollbarOuter.style.overflow = "hidden";
 	    scrollbarOuter.appendChild (scrollbarInner);
 	    
-	    var element = document.body == null ? document.documentElement : document.body;
-	    element.appendChild (scrollbarOuter);
-
+	    document.body.appendChild (scrollbarOuter);
 	    var w1 = scrollbarInner.offsetWidth;
 	    scrollbarOuter.style.overflow = 'scroll';
 	    var w2 = scrollbarInner.offsetWidth;
 	    if (w1 == w2) w2 = scrollbarOuter.clientWidth;
-
-	    element.removeChild (scrollbarOuter);
+	    
+	    document.body.removeChild (scrollbarOuter);
 	    
 	    var scrollBarWidth =  (w1 - w2);
 
